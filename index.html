@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2em;
+            color: red;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+        }
+        #yes {
+            background-color: lightgreen;
+            left: 40%;
+            top: 0;
+        }
+        #no {
+            background-color: red;
+            left: 55%;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+        <button id="yes" onclick="sayYes()">Yes</button>
+        <button id="no" onmouseover="moveNo()">No</button>
+    </div>
+    
+    <script>
+        function moveNo() {
+            let noButton = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 150);
+            let y = ((Math.random() * 2) - 1) * (300);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function sayYes() {
+            document.body.innerHTML = "<h1>Yessssssss! Я даже не сомневался ❤️</h1> \
+                                        <h1> 14 February, facetime after work :)</h1> \
+                                        <h4> Sorry I can't be there w u :(</h4>";
+        }
+    </script>
+</body>
+</html>
+
+
