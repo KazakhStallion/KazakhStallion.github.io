@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <h1>Will you be my Valentine?</h1>
+    <h1>Jami, will you be my Valentine?</h1>
     <div class="buttons">
         <button id="yes" onclick="sayYes()">Yes</button>
         <button id="no" onmouseover="moveNo()">No</button>
@@ -55,7 +55,7 @@
     <script>
         function moveNo() {
             let noButton = document.getElementById("no");
-            let x = Math.random() * (window.innerWidth - 150);
+            let x = Math.random() * (window.innerWidth - 200);
             let y = ((Math.random() * 2) - 1) * (300);
             noButton.style.left = `${x}px`;
             noButton.style.top = `${y}px`;
