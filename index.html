@@ -3,73 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Dinner Invitation</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: pink;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fff8f0, #ffe0cc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            overflow: hidden;
-        }
-        h1 {
-            font-size: 2em;
-            color: red;
-        }
-        .buttons {
-            margin-top: 20px;
+            padding: 20px 20px 50px;
+            color: #5a3e36;
+            animation: fadeIn 2s ease-in;
+            overflow-y: auto;
+            min-height: 100vh;
             position: relative;
-            width: 100%;
+            box-sizing: border-box;
         }
-        button {
-            font-size: 1.5em;
-            padding: 10px 20px;
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-weight: 400;
+            color: #9e5c4f;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .image-container img {
+            height: 260px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        }
+
+        /* Left image */
+        .image-container img:first-child {
+            width: 370px;
+        }
+
+        /* Middle image */
+        .image-container img:nth-child(2) {
+            width: 220px;
+        }
+
+        /* Right image */
+        .image-container img:last-child {
+            width: 370px;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .btn {
+            margin-top: 15px;
+            font-size: 1.3em;
+            padding: 12px 25px;
             border: none;
-            cursor: pointer;
             border-radius: 10px;
+            background-color: #ff6f61;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e25b4f;
+        }
+
+        .confirmation {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .confirmation h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .confirmation h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .confirmation p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Update corner image styles */
+        .corner-img {
             position: absolute;
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0.95;
+            z-index: 0;
         }
-        #yes {
-            background-color: lightgreen;
-            left: 40%;
-            top: 0;
+
+        .top-left {
+            top: 30px;
+            left: 60px;
+            transform: rotate(-9deg);
         }
-        #no {
-            background-color: red;
-            left: 55%;
-            top: 0;
+
+        .bottom-right {
+            bottom: 30px;
+            right: 75px;
+            transform: rotate(9deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <h1>Jami, will you be my Valentine?</h1>
-    <div class="buttons">
-        <button id="yes" onclick="sayYes()">Yes</button>
-        <button id="no" onmouseover="moveNo()">No</button>
-    </div>
-    
-    <script>
-        function moveNo() {
-            let noButton = document.getElementById("no");
-            let x = Math.random() * (window.innerWidth - 200);
-            let y = ((Math.random() * 2) - 1) * (300);
-            noButton.style.left = `${x}px`;
-            noButton.style.top = `${y}px`;
-        }
 
-        function sayYes() {
-            document.body.innerHTML = "<h1>Yessssssss! Я даже не сомневался ❤️</h1> \
-                                        <h1> 14 February, facetime after work :)</h1> \
-                                        <h4> Sorry I can't be there w u :(</h4> \
-                                        <br><br> \
-                                        <h6> С уважением, твой fav коллега</h6>";
+    <h1>Jami, I would love to take you on a date!</h1>
+    <h2>August 13th, 8:30 PM • Le Diplomate 🍽️</h2>
+    <p><a href="https://lediplomatedc.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs" target="_blank" style="color:#cc4c39; font-weight:bold; text-decoration:none;">Visit the Restaurant Website</a></p>
+
+    <div class="image-container">
+        <img src="interior.jpg" alt="Interior">
+        <img src="food.jpg" alt="Dinner Table">
+        <img src="wine.jpg" alt="Wine">
+    </div>
+
+    <button class="btn" onclick="respond()">Count Me In!</button>
+
+    <script>
+        function respond() {
+            document.body.innerHTML = `
+                <h1>🎉 YESSSSSSS! 🎉</h1>
+                <h2>Can’t wait to celebrate our 6 months together baby!</h2>
+                <p style="margin-top: 40px;">Let’s enjoy a cozy evening together.</p>
+
+                <img src="car.jpg" class="corner-img top-left" alt="Us Top Left" />
+                <img src="mountains.jpg" class="corner-img bottom-right" alt="Us Bottom Right" />
+            `;
+
+            document.body.style.display = "flex";
+            document.body.style.flexDirection = "column";
+            document.body.style.alignItems = "center";
+            document.body.style.justifyContent = "center";
+            document.body.style.height = "100vh";
+            document.body.style.overflowY = "auto";
         }
     </script>
+
 </body>
 </html>
-
-
