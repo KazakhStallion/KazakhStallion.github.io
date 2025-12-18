@@ -2,168 +2,272 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>Dinner Invitation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Tamirlan Zharmagambetov</title>
     <style>
         body {
-            background: linear-gradient(to right, #fff8f0, #ffe0cc);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            padding: 20px 20px 50px;
-            color: #5a3e36;
-            animation: fadeIn 2s ease-in;
-            overflow-y: auto;
-            min-height: 100vh;
-            position: relative;
-            box-sizing: border-box;
         }
-
-        h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
         }
-
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #444;
+            object-fit: cover;
+        }
         h2 {
-            font-weight: 400;
-            color: #9e5c4f;
+            color: #444;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            text-align: center;
         }
-        
-        .image-container {
+        .resume-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .resume-link, .linkedin-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .resume-link:hover, .linkedin-link:hover {
+            background: #666;
+        }
+        .skills-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .skills {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
             flex-wrap: wrap;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 10px;
+            padding: 10px 0;
         }
-
-        .image-container img {
-            height: 260px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-        }
-
-        /* Left image */
-        .image-container img:first-child {
-            width: 370px;
-        }
-
-        /* Middle image */
-        .image-container img:nth-child(2) {
-            width: 220px;
-        }
-
-        /* Right image */
-        .image-container img:last-child {
-            width: 370px;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-        }
-
-        .btn {
-            margin-top: 15px;
-            font-size: 1.3em;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 10px;
-            background-color: #ff6f61;
+        .skill {
+            background: #222;
             color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
-
-        .btn:hover {
-            background-color: #e25b4f;
-        }
-
-        .confirmation {
+        .contact {
+            background: #222;
+            color: white;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 20px;
+            margin-top: 20px;
         }
-
-        .confirmation h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .contact h2 {
+            color: white;
         }
-
-        .confirmation h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
         }
-
-        .confirmation p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+        .contact-info a {
+            color: #00d1b2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
         }
-
-        /* Update corner image styles */
-        .corner-img {
-            position: absolute;
-            width: 220px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            opacity: 0.95;
-            z-index: 0;
-        }
-
-        .top-left {
-            top: 30px;
-            left: 60px;
-            transform: rotate(-9deg);
-        }
-
-        .bottom-right {
-            bottom: 30px;
-            right: 75px;
-            transform: rotate(9deg);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .contact-info a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Tamirlan Zharmagambetov</h1>
+        <p>Computer Engineer | Robotics, Computer Vision, and Machine Learning</p>
+    </header>
 
-    <h1>Jami, I would love to take you on a date!</h1>
-    <h2>August 13th, 8:30 PM • Le Diplomate 🍽️</h2>
-    <p><a href="https://lediplomatedc.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs" target="_blank" style="color:#cc4c39; font-weight:bold; text-decoration:none;">Visit the Restaurant Website</a></p>
-
-    <div class="image-container">
-        <img src="interior.jpg" alt="Interior">
-        <img src="food.jpg" alt="Dinner Table">
-        <img src="wine.jpg" alt="Wine">
+    <div class="container">
+        <div class="profile">
+            <img src="AutoNav_profile_picture.png" alt="Profile Picture">
+            <div>
+                <p><strong>Languages:</strong> English (Fluent), Russian (Native), Kazakh (Native)</p>
+                <p><strong>Education:</strong> B.S. Computer Engineering, Virginia Tech (2022 - 2026)</p>
+                <p>Major: Controls, Robotics, and Autonomy</p>
+                <p>Minor: Machine Learning and Artificial Intelligence</p>
+                <div class="resume-links">
+                    <a class="resume-link" href="Zharmagambetov_T_resume.pdf" target="_blank">Download Resume</a>
+                    <a class="linkedin-link" href="https://www.linkedin.com/in/tamirlanz" target="_blank">View LinkedIn</a>
+                    <a class="linkedin-link" href="https://github.com/KazakhStallion" target="_blank">View GitHub</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button class="btn" onclick="respond()">Count Me In!</button>
+    <div class="container">
+        <h2>Work Experience</h2>
+        <p><strong>Software Engineering Intern</strong> | Basis | May 2024 – Sep 2024</p>
+        <ul>
+            <li>AI Fine-Tuning & Prompt Optimization: Used both real and synthetic data and Automatic Prompt Optimization with "Gradient Descent" to improve the accuracy and efficiency of LLMs</li>
+            <li>Software Development: Collaborated on software projects in Python, built embedded applications using Retool software, and navigated the SQL databases using complex queries.</li>
+            <li>Collaborated with AI experts on building 'Prompt Olympics' to enhance Python script development for creating testing environments and training models in an AI-driven workplace.</li>
+        </ul>
+        
+        <p><strong>Sustainability Intern</strong> | Virginia Tech | Aug 2023 – Aug 2024</p>
+        <ul>
+            <li>Led plastic waste collection and recycling initiatives on Virginia Tech Campus</li>
+            <li>Worked on automation projects for recycling facilities.</li>
+            <li>One of the 30 students given this opportunity to help our environment</li>
+        </ul>
 
-    <script>
-        function respond() {
-            document.body.innerHTML = `
-                <h1>🎉 YESSSSSSS! 🎉</h1>
-                <h2>Can’t wait to celebrate our 6 months together baby!</h2>
-                <p style="margin-top: 40px;">Let’s enjoy a cozy evening together.</p>
+        <p><strong>District 1 Student Leader</strong> | Virginia Tech Residential Well-Being | Aug 2023 – May 2024</p>
+        <ul>
+            <li>Worked on creating an inclusive community at Virginia Tech</li>
+            <li>In charge of 850 students at West Ambler Johnston Hall</li>
+            <li>Planned and hosted events to improve student engagement and well-being.</li>
+            <li>Supported every student during and outside of the learning process</li>
+        </ul>
 
-                <img src="car.jpg" class="corner-img top-left" alt="Us Top Left" />
-                <img src="mountains.jpg" class="corner-img bottom-right" alt="Us Bottom Right" />
-            `;
+        <p><strong>Treasurer</strong> | Virginia Tech Triathlon Club | May 2023 – May 2024</p>
+        <ul>
+            <li>General financial oversight. Responsible for managing and monitoring the club's funds, ensuring transparency and accountability in all financial transactions.</li>
+            <li>Financial planning and budgeting. Developed comprehensive budgets that encompassed race expenses.</li>
+            <li>Fundraising and sponsorship. Spearheaded efforts to raise funds through various initiatives and submitting requests for financial support from the athletic departments at Virginia Tech.</li>
+        </ul>
 
-            document.body.style.display = "flex";
-            document.body.style.flexDirection = "column";
-            document.body.style.alignItems = "center";
-            document.body.style.justifyContent = "center";
-            document.body.style.height = "100vh";
-            document.body.style.overflowY = "auto";
-        }
-    </script>
+        <p><strong>Assistant to the CFO</strong> | MOST Ventures | Jun 2023 – Aug 2023</p>
+        <ul>
+            <li>Assisted CFO in evaluating Pre-seed/Seed IT startups across 6 countries.</li>
+            <li>Conducted thorough reviews and analyses of startup viability and growth prospects.</li>
+            <li>Participated in startup pitching meetings, gaining insights into venture capital dynamics.</li>
+            <li>Reviewed applicants for the MOST accelerator program, contributing to selection decisions.</li>
+            <li>Developed a comprehensive understanding of venture capital operations and startup investing.</li>
+            <li>Honed analytical and decision-making skills in a fast-paced environment.</li>
+        </ul>
 
+        <p><strong>Home Appliance Engineer</strong> | Home Appliance Repair Kazakhstan Association | Jun 2023 - Jul 2023</p>
+        <ul>
+            <li>Diagnosed and repaired washing machines, fridges, air conditioning units, and dishwashers.</li>
+            <li>Specialized in troubleshooting and repairing PCBs in washing machines and AC units.</li>
+            <li>Performed complete rewiring of electronic systems to ensure safety and efficiency.</li>
+            <li>Conducted breakdown analysis and replaced faulty components as needed.</li>
+            <li>Ensured optimal appliance functionality through precise repairs and maintenance.</li>
+        </ul>
+
+        <p><strong>Robotics Specialist</strong> | ORBI Inc. | Jun 2021 – Aug 2021</p>
+        <ul>
+            <li>Researched Semi-Autonomous delivery vehicles</li>
+            <li>Prototyped the robot using Fusion 360 3D and printed using PETG filament</li>
+            <li>Worked on the development of the robot’s virtual control software using C++</li>
+            <li>Worked alongside the company’s CEO Adil Suranchin</li>
+        </ul>
+
+        <p><strong>Professional Triathlete</strong> | Virginia Tech Triathlon / MyWin KZ | May 2021 – May 2023</p>
+        <ul>
+            <li>Competed at local, national, and international triathlon events.</li>
+            <li>Won the 2023 Almaty Triathlon and multiple races across the USA.</li>
+            <li>Represented Kazakhstan at the USA Triathlon Collegiate National Championships in 2023 and 2024.</li>
+            <li>Earned an honor card from the Ministry of Sports in Kazakhstan.</li>
+            <li>Demonstrated consistent performance and dedication to the sport.</li>
+        </ul>
+
+        <p><strong>Barista & Cashier</strong> | 4A Coffee | Jun 2019 – Aug 2019</p>
+        <ul>
+            <li>Processed transactions efficiently and accurately as a cashier.</li>
+            <li>Prepared high-quality coffee, espresso, and specialty drinks as a barista.</li>
+            <li>Maintained cleanliness and organization in the workspace.</li>
+            <li>Assisted with stocking inventory and general shop upkeep.</li>
+            <li>Provided excellent customer service to create a welcoming atmosphere.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Projects</h2>
+        <p><strong>Home Audio System</strong> (Aug 2024 – Dec 2024)</p>
+        <ul>
+            <li>Designed a three-band graphic equalizer using fourth-order Butterworth filters (100 Hz–8 kHz).</li>
+            <li>Developed a Class-D amplifier with PWM modulation, diode-based deadtime control, and RLC filtering.</li>
+            <li>Programmed an Arduino for 80 kHz PWM carrier wave and OLED real-time spectrogram display.</li>
+            <li>Conducted circuit simulations and testing using LTSpice and WaveForms</li>
+            <li>Integrated and optimized subsystems including the equalizer, amplifier, and microcontroller display</li>
+        </ul>
+        
+        <p><strong>VT Formula SAE</strong> (Sep 2022 – Feb 2023)</p>
+        <ul>
+            <li>Design electronic systems in Altium Designer for the Formula SAE racing car.</li>
+            <li>Use Siemens NX to build CAD designs of circuit boxes</li>
+            <li>Ensure reliability and safety compliance of circuitry.</li>
+            <li>Collaborate with teammates to integrate sensors and control systems.</li>
+            <li>Troubleshoot technical challenges and optimize designs for peak performance.</li>
+            <li>Integrated sensors and control systems.</li>
+        </ul>
+
+        <p><strong>“Petro-Swarm”</strong> (June 2022 – Present)</p>
+        <ul>
+            <li>A swarm of robots used to clean the lakes and oceans from oil spills</li>  
+            <li>Supervised learning neural network that is trained to operate a swarm to collect oil simultaneously</li>  
+            <li>Foam-based roller with perfect physical properties to keep the oil on the surface and collect from the water surface</li>  
+            <li>Currently, in the developing stage</li>
+        </ul>
+        
+        <p><strong>Custom-built 3D Printer</strong> (June 2020 – July 2020)</p>
+        <ul>
+            <li>Bought parts from low-cost outlets</li>
+            <li>Once the main structure was built, I printed out the rest using PETG plastic</li>
+            <li>Used for multiple robotics competitions and personal use</li>
+                
+        </ul>
+    </div>
+
+    <div class="container skills-container">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill">C++</span>
+            <span class="skill">Python</span>
+            <span class="skill">Java</span>
+            <span class="skill">PyTorch</span>
+            <span class="skill">Linux</span>
+            <span class="skill">AWS</span>
+            <span class="skill">MATLAB</span>
+            <span class="skill">SolidWorks</span>
+            <span class="skill">Altium Designer</span>
+            <span class="skill">VS Code</span>
+            <span class="skill">Jupyter Notebooks</span>
+        </div>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <a href="mailto:tamirlan@gmail.com">Email: tamirlan@gmail.com</a>
+            <span>|</span>
+            <a href="tel:+13472913365">Phone: +1 (347) 291-3365</a>
+        </div>
+    </div>
 </body>
 </html>
