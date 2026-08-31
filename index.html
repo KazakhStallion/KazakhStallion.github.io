@@ -104,6 +104,24 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+        .save-contact-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 24px;
+            background: #00d1b2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+        .save-contact-btn:hover {
+            background: #00b09a;
+        }
     </style>
 </head>
 <body>
@@ -124,6 +142,7 @@
                     <a class="resume-link" href="Zharmagambetov_T_resume.pdf" target="_blank">Download Resume</a>
                     <a class="linkedin-link" href="https://www.linkedin.com/in/tamirlanz" target="_blank">View LinkedIn</a>
                     <a class="linkedin-link" href="https://github.com/KazakhStallion" target="_blank">View GitHub</a>
+                    <button class="save-contact-btn" onclick="saveContact()" style="margin-top:0;">💾 Save My Contact</button>
                 </div>
             </div>
         </div>
@@ -269,5 +288,52 @@
             <a href="tel:+13472913365">Phone: +1 (347) 291-3365</a>
         </div>
     </div>
+    <script>
+        function saveContact() {
+            var vcardLines = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+
+                // Full name (display) and structured name: Last;First;Middle;Prefix;Suffix
+                'FN:Tamir Zharmagambetov',
+                'N:Zharmagambetov;Tamirlan;;;',
+
+                // Personal email
+                'EMAIL;TYPE=INTERNET,HOME:tamirlan@gmail.com',
+
+                'EMAIL;TYPE=INTERNET,WORK:Tamir.Zharmagambetov@viavisolutions.com',
+
+                // Mobile phone
+                'TEL;TYPE=CELL:+13472913365',
+
+                'ORG:Inertial Labs, a VIAVI Solutions Company',
+
+                // Job title
+                'TITLE:Product Engineer',
+
+                // Social / web profiles
+                'URL;TYPE=Portfolio:https://kazakhstallion.github.io/',
+
+                'BDAY:20031006',
+
+                'END:VCARD'
+            ];
+
+            // Filter out commented-out lines (lines that start with //) before joining
+            var vcard = vcardLines
+                .filter(function(line) { return line.trim().indexOf('//') !== 0; })
+                .join('\r\n');
+
+            var blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+            var url  = URL.createObjectURL(blob);
+            var a    = document.createElement('a');
+            a.href     = url;
+            a.download = 'Tamirlan_Zharmagambetov.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
 </body>
 </html>
