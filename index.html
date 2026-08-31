@@ -122,6 +122,22 @@
         .save-contact-btn:hover {
             background: #00b09a;
         }
+
+        @media (max-width: 600px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .resume-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .resume-link, .linkedin-link, .save-contact-btn {
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
